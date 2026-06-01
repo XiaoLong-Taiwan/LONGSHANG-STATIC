@@ -1,8 +1,39 @@
 const root = document.documentElement;
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const descriptionMeta = document.querySelector('meta[name="description"]');
+const mainSiteOriginMeta = document.querySelector('meta[name="main-site-origin"]');
 const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 const supportedLanguages = ['zh-Hant', 'zh-Hans', 'en', 'ja'];
+
+function getMainSiteOrigin() {
+    const configuredOrigin = mainSiteOriginMeta ? mainSiteOriginMeta.getAttribute('content').trim() : '';
+
+    if (configuredOrigin) {
+        return configuredOrigin.replace(/\/$/, '');
+    }
+
+    if (document.referrer) {
+        try {
+            return new URL(document.referrer).origin;
+        } catch (error) {
+            return window.location.origin;
+        }
+    }
+
+    return window.location.origin;
+}
+
+function applyMainSiteLinks() {
+    const mainSiteOrigin = getMainSiteOrigin();
+
+    document.querySelectorAll('[data-main-link]').forEach((link) => {
+        const path = link.dataset.mainLink;
+
+        if (path) {
+            link.href = new URL(path, mainSiteOrigin).href;
+        }
+    });
+}
 
 function applySystemTheme(eventOrQuery) {
     const isDark = eventOrQuery.matches;
@@ -69,5 +100,6 @@ function applyLanguage(language) {
 
 applySystemTheme(darkModeQuery);
 applyLanguage(detectLanguage());
+applyMainSiteLinks();
 
 darkModeQuery.addEventListener('change', applySystemTheme);

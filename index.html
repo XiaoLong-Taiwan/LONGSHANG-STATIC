@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LONGSHANG 龍殤 | 企業級 AI 閘道平台</title>
+
+<meta name="description" content="LONGSHANG 龍殤 - 為團隊與企業打造的 AI API 閘道平台，整合多模型、權限管理、用量控管與社群支援。">
+<meta name="theme-color" content="#4f46e5">
+<link rel="stylesheet" href="style.css">
+<script src="languages.js" defer></script>
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="utility-controls" aria-label="Page controls">
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false">
+<span class="theme-icon" aria-hidden="true">◐</span>
+<span class="theme-text" data-i18n="themeToggle">主題</span>
+</button>
+
+<label class="language-switcher">
+<span data-i18n="languageLabel">語言</span>
+<select id="languageSelect" aria-label="Language">
+<option value="zh-Hant">繁體中文</option>
+<option value="zh-Hans">简体中文</option>
+<option value="en">English</option>
+<option value="ja">日本語</option>
+</select>
+</label>
+</div>
+
+<section class="hero">
+<div class="container">
+
+<div class="hero-inner">
+
+<div class="badge" data-i18n="heroBadge">
+多模型整合 · 用量控管 · 團隊協作
+</div>
+
+<h1>
+<span class="gradient">LONGSHANG</span><br>
+<span data-i18n="brandLocal">龍殤</span>
+</h1>
+
+<p class="subtitle" data-i18n="heroSubtitle">
+為企業、開發者與創作者打造的 AI API 閘道平台。<br>
+集中管理多家模型供應商，降低串接成本，讓團隊更穩定、更安全地使用 AI。
+</p>
+
+<div class="button-group">
+
+<a href="/dashboard" class="btn btn-primary" data-i18n="primaryCta">
+立即開始使用
+</a>
+
+<a href="/pricing" class="btn btn-secondary" data-i18n="secondaryCta">
+模型價格
+</a>
+
+</div>
+
+<div class="community">
+
+<a href="https://discord.gg/f3PJBdG5">
+<div class="community-btn" data-i18n="discordCta">
+加入 Discord 社群
+</div>
+</a>
+
+<a href="https://t.me/longshangstudio">
+<div class="community-btn" data-i18n="telegramCta">
+加入 Telegram 社群
+</div>
+</a>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="proof">
+
+<div class="container proof-grid">
+
+<div class="proof-item">
+<strong>99.9%</strong>
+<span data-i18n="proof1Label">服務可用性目標</span>
+</div>
+
+<div class="proof-item">
+<strong>10+</strong>
+<span data-i18n="proof2Label">可串接模型供應商</span>
+</div>
+
+<div class="proof-item">
+<strong>24/7</strong>
+<span data-i18n="proof3Label">用量與請求監控</span>
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="container">
+
+<div class="section-title">
+<h2 data-i18n="whyTitle">為什麼選擇 LONGSHANG？</h2>
+<p data-i18n="whyText">從 API 串接到用量治理，協助團隊把 AI 能力穩定導入日常工作流程。</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3 data-i18n="stat1Title">集中式模型管理</h3>
+<p data-i18n="stat1Text">
+在同一個平台管理 OpenAI、Claude、Gemini、DeepSeek、Grok 等模型。
+開發團隊不必重複維護多套 API 串接邏輯。
+</p>
+</div>
+
+<div class="card">
+<h3 data-i18n="stat2Title">權限與安全控管</h3>
+<p data-i18n="stat2Text">
+依照團隊、專案與角色設定存取權限。
+讓敏感金鑰與 AI 使用流程更容易被追蹤與管理。
+</p>
+</div>
+
+<div class="card">
+<h3 data-i18n="stat3Title">用量分析與預算控管</h3>
+<p data-i18n="stat3Text">
+即時掌握 Token 消耗、請求量與模型成本。
+協助團隊控制預算，避免非預期的高額費用。
+</p>
+</div>
+
+<div class="card">
+<h3 data-i18n="stat4Title">穩定可靠的服務架構</h3>
+<p data-i18n="stat4Text">
+提供統一入口、備援策略與清楚的請求紀錄。
+讓 AI 應用在正式環境中更容易維運。
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="security">
+
+<div class="container split-section">
+
+<div class="section-copy">
+<div class="badge" data-i18n="securityBadge">安全與治理</div>
+<h2 data-i18n="securityTitle">讓每一次 AI 請求都有紀錄、有權限、有預算</h2>
+<p data-i18n="securityText">LONGSHANG 協助團隊把 AI 使用從個人實驗提升為可管理的基礎設施，讓管理者能掌握風險、成本與服務品質。</p>
+</div>
+
+<div class="check-list">
+<div data-i18n="securityPoint1">金鑰集中保管，降低外洩風險</div>
+<div data-i18n="securityPoint2">依專案分配額度與模型權限</div>
+<div data-i18n="securityPoint3">保留請求紀錄，支援審計與除錯</div>
+<div data-i18n="securityPoint4">用量異常時可快速調整策略</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="features">
+
+<div class="container">
+
+<div class="section-title">
+<h2 data-i18n="featuresTitle">打造更好管理的 AI 基礎設施</h2>
+<p data-i18n="featuresText">讓團隊把心力放在產品與流程，而不是分散在金鑰、帳單與供應商差異上。</p>
+</div>
+
+<div class="highlight">
+
+<div class="card big-card">
+<h3 data-i18n="feature1Title">多模型快速串接</h3>
+<p data-i18n="feature1Text">
+透過統一 API 入口，快速切換不同模型與供應商。
+支援 GPT、Claude、Gemini、DeepSeek、Grok 等主流模型，讓產品開發更有彈性。
+</p>
+</div>
+
+<div class="card big-card">
+<h3 data-i18n="feature2Title">團隊協作與治理</h3>
+<p data-i18n="feature2Text">
+集中管理成員、專案、金鑰與使用規則。
+讓管理者可以清楚掌握誰在使用 AI、如何使用，以及成本流向。
+</p>
+</div>
+
+<div class="card big-card">
+<h3 data-i18n="feature3Title">透明用量與成本追蹤</h3>
+<p data-i18n="feature3Text">
+以清楚的數據呈現請求紀錄、Token 用量與成本趨勢。
+協助團隊做出更好的模型選擇與資源配置。
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta-section">
+
+<div class="container cta-inner">
+<h2 data-i18n="finalCtaTitle">準備把 AI 能力交給整個團隊了嗎？</h2>
+<p data-i18n="finalCtaText">從第一個 API 金鑰開始，把模型、權限、成本與監控集中到 LONGSHANG。</p>
+<div class="button-group">
+<a href="#" class="btn btn-primary" data-i18n="finalCtaButton">開始建置 AI 閘道</a>
+<a href="#" class="btn btn-secondary" data-i18n="finalCtaSecondary">聯絡我們</a>
+</div>
+</div>
+
+</section>
+
+<section class="models">
+
+<div class="container">
+
+<div class="section-title">
+<h2 data-i18n="modelsTitle">串起主流 AI 模型供應商</h2>
+<p data-i18n="modelsText">用同一套介面管理不同模型，依照任務自由選擇速度、成本與推理能力。</p>
+</div>
+
+<div class="model-strip" aria-label="AI model providers">
+<span>OpenAI</span>
+<span>Claude</span>
+<span>Gemini</span>
+<span>DeepSeek</span>
+<span>Grok</span>
+<span data-i18n="modelMore">更多模型</span>
+</div>
+
+</div>
+
+</section>
+
+<section class="workflow">
+
+<div class="container">
+
+<div class="section-title">
+<h2 data-i18n="workflowTitle">三步驟導入 AI 閘道</h2>
+<p data-i18n="workflowText">從串接到治理，以清楚的流程把 AI 能力交付給整個團隊。</p>
+</div>
+
+<div class="steps">
+
+<div class="step">
+<div class="step-number">01</div>
+<h3 data-i18n="step1Title">連接供應商</h3>
+<p data-i18n="step1Text">加入模型 API 金鑰，建立統一入口，讓不同服務使用相同的呼叫方式。</p>
+</div>
+
+<div class="step">
+<div class="step-number">02</div>
+<h3 data-i18n="step2Title">設定團隊規則</h3>
+<p data-i18n="step2Text">依照專案、角色與預算設定權限，確保每次請求都有清楚的歸屬。</p>
+</div>
+
+<div class="step">
+<div class="step-number">03</div>
+<h3 data-i18n="step3Title">追蹤並最佳化</h3>
+<p data-i18n="step3Text">透過用量與成本報表調整模型策略，讓品質、速度與費用取得平衡。</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="use-cases">
+
+<div class="container">
+
+<div class="section-title">
+<h2 data-i18n="useCasesTitle">適合這些 AI 工作流</h2>
+<p data-i18n="useCasesText">LONGSHANG 可以成為產品、客服、營運與內部自動化的共同 AI 基礎層。</p>
+</div>
+
+<div class="grid compact-grid">
+
+<div class="card">
+<h3 data-i18n="useCase1Title">產品內建 AI 功能</h3>
+<p data-i18n="useCase1Text">為 SaaS、工具與平台加入摘要、生成、搜尋與助理能力。</p>
+</div>
+
+<div class="card">
+<h3 data-i18n="useCase2Title">客服與知識庫</h3>
+<p data-i18n="useCase2Text">整合多模型回覆、知識檢索與人工交接，提升回應品質。</p>
+</div>
+
+<div class="card">
+<h3 data-i18n="useCase3Title">內部自動化</h3>
+<p data-i18n="useCase3Text">讓營運、行銷與工程團隊用受控方式建立 AI 自動化流程。</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div class="container">
+
+<div data-i18n="footerBrand">
+LONGSHANG 龍殤
+</div>
+
+<small data-i18n="copyright">
+© 2026 LONGSHANG. All Rights Reserved.
+</small>
+
+<small>
+Enterprise AI Gateway Platform
+</small>
+
+</div>
+
+</footer>
+
+</body>
+</html>

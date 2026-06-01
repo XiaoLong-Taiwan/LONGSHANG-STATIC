@@ -14,23 +14,6 @@
 </head>
 <body>
 
-<div class="utility-controls" aria-label="Page controls">
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false">
-<span class="theme-icon" aria-hidden="true">◐</span>
-<span class="theme-text" data-i18n="themeToggle">主題</span>
-</button>
-
-<label class="language-switcher">
-<span data-i18n="languageLabel">語言</span>
-<select id="languageSelect" aria-label="Language">
-<option value="zh-Hant">繁體中文</option>
-<option value="zh-Hans">简体中文</option>
-<option value="en">English</option>
-<option value="ja">日本語</option>
-</select>
-</label>
-</div>
-
 <section class="hero">
 <div class="container">
 
@@ -56,7 +39,11 @@
 立即開始使用
 </a>
 
-<a href="/pricing" class="btn btn-secondary" data-i18n="secondaryCta">
+<a href="#features" class="btn btn-secondary" data-i18n="secondaryCta">
+了解方案
+</a>
+
+<a href="/pricing" class="btn btn-secondary btn-price" data-i18n="modelPricingCta">
 模型價格
 </a>
 
@@ -115,7 +102,7 @@
 <p data-i18n="whyText">從 API 串接到用量治理，協助團隊把 AI 能力穩定導入日常工作流程。</p>
 </div>
 
-<div class="grid">
+<div class="grid reason-grid">
 
 <div class="card">
 <h3 data-i18n="stat1Title">集中式模型管理</h3>
@@ -149,6 +136,22 @@
 </p>
 </div>
 
+<div class="card">
+<h3 data-i18n="stat5Title">彈性路由與備援</h3>
+<p data-i18n="stat5Text">
+依照成本、速度與模型狀態自動切換路由。
+當供應商異常時，能更快切換到可用模型。
+</p>
+</div>
+
+<div class="card">
+<h3 data-i18n="stat6Title">開發者友善整合</h3>
+<p data-i18n="stat6Text">
+提供清楚的 API 入口與請求紀錄。
+讓工程團隊更快除錯、測試與部署 AI 功能。
+</p>
+</div>
+
 </div>
 
 </div>
@@ -176,7 +179,7 @@
 
 </section>
 
-<section class="features">
+<section class="features" id="features">
 
 <div class="container">
 

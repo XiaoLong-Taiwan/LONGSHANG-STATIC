@@ -39,8 +39,21 @@ function openDashboard() {
     }
 }
 
+function openInternal(url) {
+    try {
+        if (window.self !== window.top) {
+            window.top.location.href = url;
+        } else {
+            window.location.href = url;
+        }
+    } catch (error) {
+        window.open(url, '_blank', 'noopener,noreferrer');
+    }
+}
+
 window.openExternal = openExternal;
 window.openDashboard = openDashboard;
+window.openInternal = openInternal;
 
 function getMainSiteOrigin() {
     const configuredOrigin = mainSiteOriginMeta ? mainSiteOriginMeta.getAttribute('content').trim() : '';
@@ -111,6 +124,11 @@ function applySafeLinkBehavior() {
             link.href = internalUrl;
             link.removeAttribute('target');
             link.removeAttribute('rel');
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                setOpeningState(link);
+                openInternal(internalUrl);
+            });
             return;
         }
 

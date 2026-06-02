@@ -5,7 +5,16 @@ const mainSiteOriginMeta = document.querySelector('meta[name="main-site-origin"]
 const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 const supportedLanguages = ['zh-Hant', 'zh-Hans', 'en', 'ja'];
 const allowedInternalHosts = ['longshang.pro', 'static.longshang.pro'];
-const dashboardUrl = 'https://longshang.pro/dashboard';
+
+function getMainSiteOrigin() {
+    const configuredOrigin = mainSiteOriginMeta ? mainSiteOriginMeta.getAttribute('content').trim() : '';
+
+    return (configuredOrigin || 'https://longshang.pro').replace(/\/$/, '');
+}
+
+function getMainSiteUrl(path) {
+    return new URL(path, `${getMainSiteOrigin()}/`).href;
+}
 
 function isEmbedded() {
     try {
@@ -28,18 +37,12 @@ function openExternal(url) {
 }
 
 function openDashboard() {
-    try {
-        if (window.self !== window.top) {
-            window.top.location.href = dashboardUrl;
-        } else {
-            window.location.href = dashboardUrl;
-        }
-    } catch (error) {
-        window.open(dashboardUrl, '_blank', 'noopener,noreferrer');
-    }
+    openInternalPath('/dashboard');
 }
 
-function openInternal(url) {
+function openInternalPath(path) {
+    const url = getMainSiteUrl(path);
+
     try {
         if (window.self !== window.top) {
             window.top.location.href = url;
@@ -53,25 +56,7 @@ function openInternal(url) {
 
 window.openExternal = openExternal;
 window.openDashboard = openDashboard;
-window.openInternal = openInternal;
-
-function getMainSiteOrigin() {
-    const configuredOrigin = mainSiteOriginMeta ? mainSiteOriginMeta.getAttribute('content').trim() : '';
-
-    if (configuredOrigin) {
-        return configuredOrigin.replace(/\/$/, '');
-    }
-
-    if (document.referrer) {
-        try {
-            return new URL(document.referrer).origin;
-        } catch (error) {
-            return window.location.origin;
-        }
-    }
-
-    return window.location.origin;
-}
+window.openInternalPath = openInternalPath;
 
 function applyMainSiteLinks() {
     const mainSiteOrigin = getMainSiteOrigin();
@@ -107,27 +92,15 @@ function applySafeLinkBehavior() {
             return;
         }
 
-        if (link.hasAttribute('data-dashboard-link')) {
-            link.href = dashboardUrl;
+        if (link.hasAttribute('data-internal-path')) {
+            const internalPath = link.getAttribute('data-internal-path');
+            link.href = getMainSiteUrl(internalPath);
             link.removeAttribute('target');
             link.removeAttribute('rel');
             link.addEventListener('click', (event) => {
                 event.preventDefault();
                 setOpeningState(link);
-                openDashboard();
-            });
-            return;
-        }
-
-        if (link.hasAttribute('data-internal-link')) {
-            const internalUrl = link.getAttribute('data-internal-link');
-            link.href = internalUrl;
-            link.removeAttribute('target');
-            link.removeAttribute('rel');
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                setOpeningState(link);
-                openInternal(internalUrl);
+                openInternalPath(internalPath);
             });
             return;
         }
@@ -145,6 +118,22 @@ function applySafeLinkBehavior() {
                 });
             }
         }
+    });
+}
+
+function applyScrollLinks() {
+    document.querySelectorAll('[data-scroll-target]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+            const targetName = link.getAttribute('data-scroll-target');
+            const target = document.querySelector(`[data-section="${targetName}"]`);
+
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     });
 }
 
@@ -215,5 +204,6 @@ applySystemTheme(darkModeQuery);
 applyLanguage(detectLanguage());
 applyMainSiteLinks();
 applySafeLinkBehavior();
+applyScrollLinks();
 
 darkModeQuery.addEventListener('change', applySystemTheme);
